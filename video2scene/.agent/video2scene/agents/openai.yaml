@@ -1,0 +1,6 @@
+interface:
+  display_name: "Video2Scene"
+  short_description: "从真实视频构建并持续校验 Blender 与 Genesis 数据流程"
+  default_prompt: "Use $video2scene to reconstruct the requested video, validate each repository stage, and run the evidence-driven self-evolution audit."
+policy:
+  allow_implicit_invocation: true

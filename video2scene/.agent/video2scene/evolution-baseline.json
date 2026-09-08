@@ -1,0 +1,2008 @@
+{
+  "modules": {
+    ".agent/video2scene/scripts/evolution_audit.py": {
+      "classes": {
+        "Args": {
+          "fields": {
+            "baseline": {
+              "annotation": "Path",
+              "default": "DEFAULT_BASELINE"
+            },
+            "fail_on_findings": {
+              "annotation": "bool",
+              "default": "False"
+            },
+            "output_root": {
+              "annotation": "Path | None",
+              "default": "None"
+            },
+            "refresh_baseline": {
+              "annotation": "bool",
+              "default": "False"
+            },
+            "report": {
+              "annotation": "Path | None",
+              "default": "None"
+            },
+            "reviewed": {
+              "annotation": "bool",
+              "default": "False"
+            },
+            "spec": {
+              "annotation": "Path",
+              "default": "DEFAULT_SPEC"
+            },
+            "target_phase": {
+              "annotation": "Literal['auto', 'phase1', 'phase2', 'phase3']",
+              "default": "'auto'"
+            }
+          },
+          "methods": {}
+        }
+      },
+      "functions": {
+        "argument_contract": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "ast.arg",
+              "default": "<required>",
+              "name": "argument"
+            },
+            {
+              "annotation": "ast.expr | None",
+              "default": "<required>",
+              "name": "default"
+            }
+          ],
+          "returns": "dict[str, Any]",
+          "vararg": null
+        },
+        "audit": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "Args",
+              "default": "<required>",
+              "name": "args"
+            }
+          ],
+          "returns": "tuple[dict[str, Any], bool]",
+          "vararg": null
+        },
+        "baseline_diff": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "dict[str, Any]",
+              "default": "<required>",
+              "name": "current"
+            },
+            {
+              "annotation": "Path",
+              "default": "<required>",
+              "name": "baseline_path"
+            }
+          ],
+          "returns": "dict[str, Any]",
+          "vararg": null
+        },
+        "collect_contract": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [],
+          "returns": "dict[str, Any]",
+          "vararg": null
+        },
+        "expression": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "ast.expr | None",
+              "default": "<required>",
+              "name": "node"
+            }
+          ],
+          "returns": "str | None",
+          "vararg": null
+        },
+        "function_signature": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "ast.FunctionDef | ast.AsyncFunctionDef",
+              "default": "<required>",
+              "name": "node"
+            }
+          ],
+          "returns": "dict[str, Any]",
+          "vararg": null
+        },
+        "main": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "Args",
+              "default": "<required>",
+              "name": "args"
+            }
+          ],
+          "returns": "int",
+          "vararg": null
+        },
+        "markdown_link_findings": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "Path",
+              "default": "<required>",
+              "name": "skill_root"
+            }
+          ],
+          "returns": "list[dict[str, Any]]",
+          "vararg": null
+        },
+        "module_contract": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "Path",
+              "default": "<required>",
+              "name": "path"
+            }
+          ],
+          "returns": "dict[str, Any]",
+          "vararg": null
+        },
+        "recent_runtime_evidence": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "list[Path]",
+              "default": "<required>",
+              "name": "paths"
+            }
+          ],
+          "returns": "list[dict[str, Any]]",
+          "vararg": null
+        },
+        "recommendations": {
+          "keyword_only": [
+            {
+              "annotation": "str",
+              "default": "<required>",
+              "name": "scene_id"
+            },
+            {
+              "annotation": "dict[str, Any]",
+              "default": "<required>",
+              "name": "drift"
+            },
+            {
+              "annotation": "bool",
+              "default": "<required>",
+              "name": "repo_invalid"
+            },
+            {
+              "annotation": "list[dict[str, Any]]",
+              "default": "<required>",
+              "name": "broken_links"
+            },
+            {
+              "annotation": "list[dict[str, Any]]",
+              "default": "<required>",
+              "name": "markers"
+            },
+            {
+              "annotation": "list[dict[str, Any]]",
+              "default": "<required>",
+              "name": "hardcoding"
+            },
+            {
+              "annotation": "dict[str, Any]",
+              "default": "<required>",
+              "name": "coverage"
+            }
+          ],
+          "kwarg": null,
+          "positional": [],
+          "returns": "list[str]",
+          "vararg": null
+        },
+        "resolve_target_phase": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "str",
+              "default": "<required>",
+              "name": "requested"
+            },
+            {
+              "annotation": "dict[str, Any]",
+              "default": "<required>",
+              "name": "coverage"
+            }
+          ],
+          "returns": "str",
+          "vararg": null
+        },
+        "scene_hardcoding": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "tuple[str, ...]",
+              "default": "<required>",
+              "name": "modules"
+            }
+          ],
+          "returns": "list[dict[str, Any]]",
+          "vararg": null
+        },
+        "skill_structure": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "Path",
+              "default": "<required>",
+              "name": "skill_root"
+            }
+          ],
+          "returns": "dict[str, Any]",
+          "vararg": null
+        },
+        "unfinished_markers": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [],
+          "returns": "list[dict[str, Any]]",
+          "vararg": null
+        },
+        "write_json": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "Path",
+              "default": "<required>",
+              "name": "path"
+            },
+            {
+              "annotation": "dict[str, Any]",
+              "default": "<required>",
+              "name": "payload"
+            }
+          ],
+          "returns": "None",
+          "vararg": null
+        }
+      }
+    },
+    ".agent/video2scene/scripts/inspect_repo.py": {
+      "classes": {
+        "Args": {
+          "fields": {
+            "fail_on_invalid": {
+              "annotation": "bool",
+              "default": "False"
+            },
+            "output_root": {
+              "annotation": "Path | None",
+              "default": "None"
+            },
+            "spec": {
+              "annotation": "Path",
+              "default": "DEFAULT_SPEC"
+            }
+          },
+          "methods": {}
+        }
+      },
+      "functions": {
+        "artifact_state": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "Path",
+              "default": "<required>",
+              "name": "root"
+            },
+            {
+              "annotation": "tuple[str, ...]",
+              "default": "<required>",
+              "name": "names"
+            }
+          ],
+          "returns": "dict[str, bool]",
+          "vararg": null
+        },
+        "dataset_summary": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "SceneLayout",
+              "default": "<required>",
+              "name": "layout"
+            }
+          ],
+          "returns": "dict[str, Any]",
+          "vararg": null
+        },
+        "inspect": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "Args",
+              "default": "<required>",
+              "name": "args"
+            }
+          ],
+          "returns": "tuple[dict[str, Any], bool]",
+          "vararg": null
+        },
+        "main": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "Args",
+              "default": "<required>",
+              "name": "args"
+            }
+          ],
+          "returns": "int",
+          "vararg": null
+        },
+        "solver_summary": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "Path",
+              "default": "<required>",
+              "name": "blender_dir"
+            }
+          ],
+          "returns": "tuple[dict[str, Any] | None, str | None]",
+          "vararg": null
+        },
+        "validation_summary": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "Path",
+              "default": "<required>",
+              "name": "path"
+            }
+          ],
+          "returns": "dict[str, Any] | None",
+          "vararg": null
+        }
+      }
+    },
+    "video2scene/assets.py": {
+      "classes": {},
+      "functions": {
+        "evaluated_mesh": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "obj"
+            },
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "body_matrix"
+            }
+          ],
+          "returns": null,
+          "vararg": null
+        },
+        "export_entity": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "name"
+            },
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "root"
+            },
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "spec"
+            },
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "output"
+            }
+          ],
+          "returns": null,
+          "vararg": null
+        },
+        "save_obj": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "path"
+            },
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "mesh"
+            }
+          ],
+          "returns": null,
+          "vararg": null
+        }
+      }
+    },
+    "video2scene/build.py": {
+      "classes": {
+        "BuildConfig": {
+          "fields": {
+            "handoff_only": {
+              "annotation": "bool",
+              "default": "False"
+            },
+            "output_root": {
+              "annotation": "Path | None",
+              "default": "None"
+            },
+            "samples": {
+              "annotation": "int",
+              "default": "64"
+            },
+            "seed": {
+              "annotation": "int | None",
+              "default": "None"
+            },
+            "spec": {
+              "annotation": "Path",
+              "default": "DEFAULT_SPEC"
+            },
+            "threads": {
+              "annotation": "int",
+              "default": "12"
+            }
+          },
+          "methods": {}
+        }
+      },
+      "functions": {
+        "aim": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "obj"
+            },
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "target"
+            }
+          ],
+          "returns": null,
+          "vararg": null
+        },
+        "build": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "BuildConfig",
+              "default": "<required>",
+              "name": "config"
+            }
+          ],
+          "returns": null,
+          "vararg": null
+        },
+        "configure_scene": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "spec"
+            },
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "samples"
+            },
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "threads"
+            }
+          ],
+          "returns": null,
+          "vararg": null
+        },
+        "construct": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "spec"
+            },
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "scene"
+            },
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "collections"
+            }
+          ],
+          "returns": null,
+          "vararg": null
+        },
+        "main": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [],
+          "returns": null,
+          "vararg": null
+        },
+        "render": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "scene"
+            },
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "path"
+            }
+          ],
+          "returns": null,
+          "vararg": null
+        }
+      }
+    },
+    "video2scene/dataset_artifacts.py": {
+      "classes": {},
+      "functions": {
+        "batch_complete": {
+          "keyword_only": [
+            {
+              "annotation": "str | None",
+              "default": "None",
+              "name": "expected_identity_sha256"
+            },
+            {
+              "annotation": "list[int] | None",
+              "default": "None",
+              "name": "expected_sample_ids"
+            }
+          ],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "Path",
+              "default": "<required>",
+              "name": "batch_dir"
+            }
+          ],
+          "returns": "bool",
+          "vararg": null
+        },
+        "remove_legacy_batch_artifacts": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "Path",
+              "default": "<required>",
+              "name": "batch_dir"
+            }
+          ],
+          "returns": "None",
+          "vararg": null
+        }
+      }
+    },
+    "video2scene/dataset_simulation.py": {
+      "classes": {
+        "BatchRuntimeResult": {
+          "fields": {
+            "run_manifest": {
+              "annotation": "dict[str, Any]",
+              "default": null
+            },
+            "validation": {
+              "annotation": "dict[str, Any]",
+              "default": null
+            }
+          },
+          "methods": {}
+        }
+      },
+      "functions": {
+        "run_parallel_batch": {
+          "keyword_only": [
+            {
+              "annotation": "bool",
+              "default": "True",
+              "name": "use_sampled_restitution"
+            }
+          ],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "SimulationRunConfig",
+              "default": "<required>",
+              "name": "config"
+            },
+            {
+              "annotation": "BatchPlan",
+              "default": "<required>",
+              "name": "plan"
+            },
+            {
+              "annotation": "dict[str, Any]",
+              "default": "<required>",
+              "name": "anchor_manifest"
+            }
+          ],
+          "returns": "BatchRuntimeResult",
+          "vararg": null
+        }
+      }
+    },
+    "video2scene/domain_randomization.py": {
+      "classes": {
+        "BatchPlan": {
+          "fields": {
+            "batch_index": {
+              "annotation": "int",
+              "default": null
+            },
+            "batch_seed": {
+              "annotation": "int | None",
+              "default": null
+            },
+            "batch_spec": {
+              "annotation": "dict[str, Any]",
+              "default": null
+            },
+            "parameter_execution": {
+              "annotation": "dict[str, dict[str, str]]",
+              "default": null
+            },
+            "samples": {
+              "annotation": "tuple[PlannedSample, ...]",
+              "default": null
+            }
+          },
+          "methods": {}
+        },
+        "PlannedSample": {
+          "fields": {
+            "attempt": {
+              "annotation": "int",
+              "default": null
+            },
+            "env_index": {
+              "annotation": "int",
+              "default": null
+            },
+            "sample_id": {
+              "annotation": "int",
+              "default": null
+            },
+            "sample_seed": {
+              "annotation": "int",
+              "default": null
+            },
+            "spec": {
+              "annotation": "dict[str, Any]",
+              "default": null
+            }
+          },
+          "methods": {}
+        }
+      },
+      "functions": {
+        "derive_seed": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "int",
+              "default": "<required>",
+              "name": "root_seed"
+            }
+          ],
+          "returns": "int",
+          "vararg": {
+            "annotation": "int | str",
+            "default": "<required>",
+            "name": "coordinates"
+          }
+        },
+        "parameter_execution": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "dict[str, Any]",
+              "default": "<required>",
+              "name": "base_spec"
+            }
+          ],
+          "returns": "dict[str, dict[str, str]]",
+          "vararg": null
+        },
+        "plan_batch": {
+          "keyword_only": [
+            {
+              "annotation": "int",
+              "default": "<required>",
+              "name": "root_seed"
+            },
+            {
+              "annotation": "int",
+              "default": "<required>",
+              "name": "batch_index"
+            },
+            {
+              "annotation": "int",
+              "default": "<required>",
+              "name": "num_envs"
+            },
+            {
+              "annotation": "int",
+              "default": "<required>",
+              "name": "sample_start"
+            },
+            {
+              "annotation": "dict[str, Any] | None",
+              "default": "None",
+              "name": "batch_spec"
+            },
+            {
+              "annotation": "int | None",
+              "default": "None",
+              "name": "batch_seed"
+            },
+            {
+              "annotation": "int",
+              "default": "128",
+              "name": "max_attempts"
+            }
+          ],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "dict[str, Any]",
+              "default": "<required>",
+              "name": "base_spec"
+            }
+          ],
+          "returns": "BatchPlan",
+          "vararg": null
+        },
+        "pointer_value": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "dict[str, Any]",
+              "default": "<required>",
+              "name": "data"
+            },
+            {
+              "annotation": "str",
+              "default": "<required>",
+              "name": "pointer"
+            }
+          ],
+          "returns": "Any",
+          "vararg": null
+        },
+        "resolve_runtime_entities": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "dict[str, Any]",
+              "default": "<required>",
+              "name": "anchor_manifest"
+            },
+            {
+              "annotation": "list[dict[str, Any]]",
+              "default": "<required>",
+              "name": "effective_specs"
+            }
+          ],
+          "returns": "list[dict[str, dict[str, Any]]]",
+          "vararg": null
+        },
+        "serializable_batch_plan": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "BatchPlan",
+              "default": "<required>",
+              "name": "plan"
+            }
+          ],
+          "returns": "dict[str, Any]",
+          "vararg": null
+        },
+        "set_pointer_value": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "dict[str, Any]",
+              "default": "<required>",
+              "name": "data"
+            },
+            {
+              "annotation": "str",
+              "default": "<required>",
+              "name": "pointer"
+            },
+            {
+              "annotation": "Any",
+              "default": "<required>",
+              "name": "value"
+            }
+          ],
+          "returns": "None",
+          "vararg": null
+        }
+      }
+    },
+    "video2scene/generate_dataset.py": {
+      "classes": {
+        "DatasetConfig": {
+          "fields": {
+            "asset_mode": {
+              "annotation": "Literal['sampled', 'reuse']",
+              "default": "'sampled'"
+            },
+            "backend": {
+              "annotation": "Literal['gpu', 'cpu']",
+              "default": "'gpu'"
+            },
+            "blender_render_samples": {
+              "annotation": "int",
+              "default": "8"
+            },
+            "blender_threads": {
+              "annotation": "int",
+              "default": "12"
+            },
+            "coupler": {
+              "annotation": "Literal['legacy', 'sap']",
+              "default": "'legacy'"
+            },
+            "coupling_friction_scale": {
+              "annotation": "float",
+              "default": "1.0"
+            },
+            "coupling_softness_m": {
+              "annotation": "float",
+              "default": "0.015"
+            },
+            "damping_scale": {
+              "annotation": "float",
+              "default": "2.5"
+            },
+            "duration_s": {
+              "annotation": "float",
+              "default": "1.0"
+            },
+            "force_retet": {
+              "annotation": "bool",
+              "default": "False"
+            },
+            "num_envs": {
+              "annotation": "int",
+              "default": "4"
+            },
+            "output_root": {
+              "annotation": "Path | None",
+              "default": "None"
+            },
+            "overwrite": {
+              "annotation": "bool",
+              "default": "False"
+            },
+            "record_hz": {
+              "annotation": "int",
+              "default": "30"
+            },
+            "relax_s": {
+              "annotation": "float",
+              "default": "0.0125"
+            },
+            "render_preview": {
+              "annotation": "bool",
+              "default": "False"
+            },
+            "resume": {
+              "annotation": "bool",
+              "default": "False"
+            },
+            "samples": {
+              "annotation": "int",
+              "default": "64"
+            },
+            "seed": {
+              "annotation": "int",
+              "default": "0"
+            },
+            "simulation_hz": {
+              "annotation": "int",
+              "default": "1920"
+            },
+            "spec": {
+              "annotation": "Path",
+              "default": "DEFAULT_SPEC"
+            },
+            "start_sample": {
+              "annotation": "int",
+              "default": "0"
+            },
+            "use_sampled_restitution": {
+              "annotation": "Annotated[bool, tyro.conf.arg(name='sampled-restitution')]",
+              "default": "True"
+            }
+          },
+          "methods": {
+            "batches_dir": {
+              "keyword_only": [],
+              "kwarg": null,
+              "positional": [
+                {
+                  "annotation": null,
+                  "default": "<required>",
+                  "name": "self"
+                }
+              ],
+              "returns": "Path",
+              "vararg": null
+            },
+            "blender_dir": {
+              "keyword_only": [],
+              "kwarg": null,
+              "positional": [
+                {
+                  "annotation": null,
+                  "default": "<required>",
+                  "name": "self"
+                }
+              ],
+              "returns": "Path",
+              "vararg": null
+            },
+            "layout": {
+              "keyword_only": [],
+              "kwarg": null,
+              "positional": [
+                {
+                  "annotation": null,
+                  "default": "<required>",
+                  "name": "self"
+                }
+              ],
+              "returns": "SceneLayout",
+              "vararg": null
+            }
+          }
+        }
+      },
+      "functions": {
+        "main": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [],
+          "returns": "None",
+          "vararg": null
+        },
+        "run_dataset": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "DatasetConfig",
+              "default": "<required>",
+              "name": "config"
+            }
+          ],
+          "returns": "dict[str, Any]",
+          "vararg": null
+        }
+      }
+    },
+    "video2scene/genesis_plan.py": {
+      "classes": {
+        "MigrationError": {
+          "fields": {},
+          "methods": {}
+        }
+      },
+      "functions": {
+        "build_plan": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "str | Path",
+              "default": "<required>",
+              "name": "blender_dir"
+            }
+          ],
+          "returns": "dict[str, Any]",
+          "vararg": null
+        },
+        "choose_solver": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "str",
+              "default": "<required>",
+              "name": "name"
+            },
+            {
+              "annotation": "dict[str, Any]",
+              "default": "<required>",
+              "name": "entity"
+            }
+          ],
+          "returns": "dict[str, Any]",
+          "vararg": null
+        },
+        "linear_to_srgb": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "list[float] | tuple[float, ...]",
+              "default": "<required>",
+              "name": "color"
+            }
+          ],
+          "returns": "tuple[float, float, float, float]",
+          "vararg": null
+        },
+        "rayleigh_damping": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "dict[str, dict[str, Any]]",
+              "default": "<required>",
+              "name": "entities"
+            }
+          ],
+          "returns": "dict[str, Any]",
+          "vararg": null
+        },
+        "vertical_fov_deg": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "dict[str, Any]",
+              "default": "<required>",
+              "name": "camera"
+            }
+          ],
+          "returns": "float",
+          "vararg": null
+        }
+      }
+    },
+    "video2scene/layout.py": {
+      "classes": {
+        "BatchLayout": {
+          "fields": {
+            "root": {
+              "annotation": "Path",
+              "default": null
+            }
+          },
+          "methods": {
+            "incomplete_marker": {
+              "keyword_only": [],
+              "kwarg": null,
+              "positional": [
+                {
+                  "annotation": null,
+                  "default": "<required>",
+                  "name": "self"
+                }
+              ],
+              "returns": "Path",
+              "vararg": null
+            },
+            "sim": {
+              "keyword_only": [],
+              "kwarg": null,
+              "positional": [
+                {
+                  "annotation": null,
+                  "default": "<required>",
+                  "name": "self"
+                }
+              ],
+              "returns": "Path",
+              "vararg": null
+            },
+            "success_marker": {
+              "keyword_only": [],
+              "kwarg": null,
+              "positional": [
+                {
+                  "annotation": null,
+                  "default": "<required>",
+                  "name": "self"
+                }
+              ],
+              "returns": "Path",
+              "vararg": null
+            }
+          }
+        },
+        "SceneLayout": {
+          "fields": {
+            "root": {
+              "annotation": "Path",
+              "default": null
+            }
+          },
+          "methods": {
+            "batch": {
+              "keyword_only": [],
+              "kwarg": null,
+              "positional": [
+                {
+                  "annotation": null,
+                  "default": "<required>",
+                  "name": "self"
+                },
+                {
+                  "annotation": "int",
+                  "default": "<required>",
+                  "name": "index"
+                }
+              ],
+              "returns": "BatchLayout",
+              "vararg": null
+            },
+            "batches": {
+              "keyword_only": [],
+              "kwarg": null,
+              "positional": [
+                {
+                  "annotation": null,
+                  "default": "<required>",
+                  "name": "self"
+                }
+              ],
+              "returns": "Path",
+              "vararg": null
+            },
+            "blender": {
+              "keyword_only": [],
+              "kwarg": null,
+              "positional": [
+                {
+                  "annotation": null,
+                  "default": "<required>",
+                  "name": "self"
+                }
+              ],
+              "returns": "Path",
+              "vararg": null
+            },
+            "blender_variant": {
+              "keyword_only": [],
+              "kwarg": null,
+              "positional": [
+                {
+                  "annotation": null,
+                  "default": "<required>",
+                  "name": "self"
+                },
+                {
+                  "annotation": "int",
+                  "default": "<required>",
+                  "name": "seed"
+                }
+              ],
+              "returns": "Path",
+              "vararg": null
+            },
+            "frames": {
+              "keyword_only": [],
+              "kwarg": null,
+              "positional": [
+                {
+                  "annotation": null,
+                  "default": "<required>",
+                  "name": "self"
+                }
+              ],
+              "returns": "Path",
+              "vararg": null
+            },
+            "prepare": {
+              "keyword_only": [],
+              "kwarg": null,
+              "positional": [
+                {
+                  "annotation": null,
+                  "default": "<required>",
+                  "name": "self"
+                }
+              ],
+              "returns": "None",
+              "vararg": null
+            },
+            "reference_frame": {
+              "keyword_only": [],
+              "kwarg": null,
+              "positional": [
+                {
+                  "annotation": null,
+                  "default": "<required>",
+                  "name": "self"
+                },
+                {
+                  "annotation": "int",
+                  "default": "<required>",
+                  "name": "frame_index"
+                }
+              ],
+              "returns": "Path",
+              "vararg": null
+            },
+            "sim": {
+              "keyword_only": [],
+              "kwarg": null,
+              "positional": [
+                {
+                  "annotation": null,
+                  "default": "<required>",
+                  "name": "self"
+                }
+              ],
+              "returns": "Path",
+              "vararg": null
+            }
+          }
+        }
+      },
+      "functions": {
+        "resolve_scene_layout": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "str",
+              "default": "<required>",
+              "name": "scene_id"
+            },
+            {
+              "annotation": "Path | None",
+              "default": "None",
+              "name": "output_root"
+            }
+          ],
+          "returns": "SceneLayout",
+          "vararg": null
+        }
+      }
+    },
+    "video2scene/simulate.py": {
+      "classes": {},
+      "functions": {
+        "main": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [],
+          "returns": "None",
+          "vararg": null
+        },
+        "run": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "SimulationRunConfig",
+              "default": "<required>",
+              "name": "config"
+            }
+          ],
+          "returns": "dict[str, Any]",
+          "vararg": null
+        }
+      }
+    },
+    "video2scene/simulation_config.py": {
+      "classes": {
+        "SimulationCommandConfig": {
+          "fields": {
+            "output_root": {
+              "annotation": "Path",
+              "default": "DEFAULT_SCENE_ROOT"
+            }
+          },
+          "methods": {}
+        },
+        "SimulationOptions": {
+          "fields": {
+            "ambient_light": {
+              "annotation": "float",
+              "default": "0.85"
+            },
+            "approximate_area_lights": {
+              "annotation": "bool",
+              "default": "False"
+            },
+            "backend": {
+              "annotation": "Literal['gpu', 'cpu']",
+              "default": "'gpu'"
+            },
+            "coupler": {
+              "annotation": "Literal['legacy', 'sap']",
+              "default": "'legacy'"
+            },
+            "coupling_friction_scale": {
+              "annotation": "float",
+              "default": "1.0"
+            },
+            "coupling_softness_m": {
+              "annotation": "float",
+              "default": "0.015"
+            },
+            "damping_scale": {
+              "annotation": "float",
+              "default": "2.5"
+            },
+            "duration_s": {
+              "annotation": "float",
+              "default": "1.0"
+            },
+            "fill_light_scale": {
+              "annotation": "float",
+              "default": "0.45"
+            },
+            "force_retet": {
+              "annotation": "bool",
+              "default": "False"
+            },
+            "fps": {
+              "annotation": "int",
+              "default": "30"
+            },
+            "key_light_scale": {
+              "annotation": "float",
+              "default": "0.35"
+            },
+            "light_model": {
+              "annotation": "Literal['point', 'directional']",
+              "default": "'point'"
+            },
+            "num_envs": {
+              "annotation": "int",
+              "default": "1"
+            },
+            "overwrite": {
+              "annotation": "bool",
+              "default": "False"
+            },
+            "relax_s": {
+              "annotation": "float",
+              "default": "0.0125"
+            },
+            "render": {
+              "annotation": "bool",
+              "default": "True"
+            },
+            "render_shadows": {
+              "annotation": "bool",
+              "default": "False"
+            },
+            "seed": {
+              "annotation": "int",
+              "default": "0"
+            },
+            "simulation_hz": {
+              "annotation": "int",
+              "default": "1920"
+            },
+            "surface_color_space": {
+              "annotation": "Literal['linear', 'srgb']",
+              "default": "'linear'"
+            }
+          },
+          "methods": {
+            "dt": {
+              "keyword_only": [],
+              "kwarg": null,
+              "positional": [
+                {
+                  "annotation": null,
+                  "default": "<required>",
+                  "name": "self"
+                }
+              ],
+              "returns": "float",
+              "vararg": null
+            }
+          }
+        },
+        "SimulationRunConfig": {
+          "fields": {
+            "blender_dir": {
+              "annotation": "Path",
+              "default": null
+            },
+            "sim_dir": {
+              "annotation": "Path",
+              "default": null
+            },
+            "source_frames_dir": {
+              "annotation": "Path",
+              "default": null
+            }
+          },
+          "methods": {}
+        }
+      },
+      "functions": {
+        "resolve_simulation_command": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "SimulationCommandConfig",
+              "default": "<required>",
+              "name": "config"
+            }
+          ],
+          "returns": "SimulationRunConfig",
+          "vararg": null
+        },
+        "validate_simulation_options": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "SimulationOptions",
+              "default": "<required>",
+              "name": "config"
+            }
+          ],
+          "returns": "None",
+          "vararg": null
+        }
+      }
+    },
+    "video2scene/simulation_runtime.py": {
+      "classes": {
+        "RuntimeScene": {
+          "fields": {
+            "build_seconds": {
+              "annotation": "float",
+              "default": null
+            },
+            "camera": {
+              "annotation": "Any",
+              "default": null
+            },
+            "deformable": {
+              "annotation": "dict[str, Any]",
+              "default": null
+            },
+            "env_entities": {
+              "annotation": "list[dict[str, dict[str, Any]]] | None",
+              "default": "None"
+            },
+            "gs": {
+              "annotation": "Any",
+              "default": null
+            },
+            "manifest": {
+              "annotation": "dict[str, Any]",
+              "default": null
+            },
+            "physical": {
+              "annotation": "dict[str, Any]",
+              "default": null
+            },
+            "plan": {
+              "annotation": "dict[str, Any]",
+              "default": null
+            },
+            "reference_tet_signs": {
+              "annotation": "dict[str, np.ndarray]",
+              "default": null
+            },
+            "scene": {
+              "annotation": "Any",
+              "default": null
+            },
+            "source_surfaces": {
+              "annotation": "dict[str, np.ndarray]",
+              "default": null
+            },
+            "surface_indices": {
+              "annotation": "dict[str, np.ndarray]",
+              "default": null
+            },
+            "tetrahedra": {
+              "annotation": "dict[str, np.ndarray]",
+              "default": null
+            },
+            "visual_followers": {
+              "annotation": "dict[str, Any]",
+              "default": null
+            }
+          },
+          "methods": {}
+        }
+      },
+      "functions": {
+        "as_numpy": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "Any",
+              "default": "<required>",
+              "name": "value"
+            }
+          ],
+          "returns": "np.ndarray",
+          "vararg": null
+        },
+        "build_runtime": {
+          "keyword_only": [
+            {
+              "annotation": "list[dict[str, dict[str, Any]]] | None",
+              "default": "None",
+              "name": "env_entities"
+            },
+            {
+              "annotation": "bool",
+              "default": "False",
+              "name": "use_sampled_coupling_restitution"
+            }
+          ],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "SimulationRunConfig",
+              "default": "<required>",
+              "name": "config"
+            }
+          ],
+          "returns": "RuntimeScene",
+          "vararg": null
+        },
+        "render_frame": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "RuntimeScene",
+              "default": "<required>",
+              "name": "runtime"
+            },
+            {
+              "annotation": "Path",
+              "default": "<required>",
+              "name": "path"
+            }
+          ],
+          "returns": "None",
+          "vararg": null
+        },
+        "set_rigid_pose": {
+          "keyword_only": [
+            {
+              "annotation": "bool",
+              "default": "True",
+              "name": "zero_velocity"
+            }
+          ],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "Any",
+              "default": "<required>",
+              "name": "entity"
+            },
+            {
+              "annotation": "dict[str, Any]",
+              "default": "<required>",
+              "name": "state"
+            }
+          ],
+          "returns": "None",
+          "vararg": null
+        },
+        "sync_visual_followers": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": "RuntimeScene",
+              "default": "<required>",
+              "name": "runtime"
+            }
+          ],
+          "returns": "None",
+          "vararg": null
+        }
+      }
+    },
+    "video2scene/spec.py": {
+      "classes": {
+        "SamplingConfig": {
+          "fields": {
+            "count": {
+              "annotation": "int",
+              "default": "1"
+            },
+            "output": {
+              "annotation": "Path",
+              "default": null
+            },
+            "seed": {
+              "annotation": "int",
+              "default": "0"
+            },
+            "spec": {
+              "annotation": "Path",
+              "default": "DEFAULT_SPEC"
+            }
+          },
+          "methods": {}
+        }
+      },
+      "functions": {
+        "bounds": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "entity"
+            }
+          ],
+          "returns": null,
+          "vararg": null
+        },
+        "digest": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "data"
+            }
+          ],
+          "returns": null,
+          "vararg": null
+        },
+        "main": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [],
+          "returns": null,
+          "vararg": null
+        },
+        "pointer_parent": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "data"
+            },
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "pointer"
+            }
+          ],
+          "returns": null,
+          "vararg": null
+        },
+        "read_json": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "path"
+            }
+          ],
+          "returns": null,
+          "vararg": null
+        },
+        "sample": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "spec"
+            },
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "seed"
+            },
+            {
+              "annotation": null,
+              "default": "128",
+              "name": "max_attempts"
+            }
+          ],
+          "returns": null,
+          "vararg": null
+        },
+        "validate": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "spec"
+            },
+            {
+              "annotation": null,
+              "default": "True",
+              "name": "check_schema"
+            }
+          ],
+          "returns": null,
+          "vararg": null
+        },
+        "write_json": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "path"
+            },
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "data"
+            }
+          ],
+          "returns": null,
+          "vararg": null
+        }
+      }
+    },
+    "video2scene/validate.py": {
+      "classes": {
+        "ValidationConfig": {
+          "fields": {
+            "blender_dir": {
+              "annotation": "Annotated[Path, tyro.conf.Positional]",
+              "default": null
+            },
+            "no_image_checks": {
+              "annotation": "bool",
+              "default": "False"
+            }
+          },
+          "methods": {}
+        }
+      },
+      "functions": {
+        "main": {
+          "keyword_only": [],
+          "kwarg": null,
+          "positional": [],
+          "returns": null,
+          "vararg": null
+        },
+        "run": {
+          "keyword_only": [
+            {
+              "annotation": null,
+              "default": "True",
+              "name": "require_images"
+            }
+          ],
+          "kwarg": null,
+          "positional": [
+            {
+              "annotation": null,
+              "default": "<required>",
+              "name": "output"
+            }
+          ],
+          "returns": null,
+          "vararg": null
+        }
+      }
+    }
+  },
+  "package_version": "0.3.0",
+  "scene_schema": {
+    "geometry_generators": [
+      "box",
+      "clamp",
+      "cushion",
+      "sphere"
+    ],
+    "id": "https://video2scene.local/schemas/scene.v1.json",
+    "physics_types": [
+      "cloth",
+      "fluid",
+      "rigid",
+      "soft",
+      "static"
+    ],
+    "scene_version": "video2scene.scene.v1",
+    "top_level_required": [
+      "camera",
+      "coordinates",
+      "domain_randomization",
+      "entities",
+      "environment",
+      "evidence",
+      "genesis_handoff",
+      "lighting",
+      "phase",
+      "physics_validation",
+      "quality",
+      "scene_id",
+      "schema_version",
+      "semantics",
+      "source"
+    ]
+  },
+  "schema_version": "video2scene.evolution-baseline.v1",
+  "skill_resources": {
+    "SKILL.md": true,
+    "agents/openai.yaml": true,
+    "references/phase-playbook.md": true,
+    "references/repository-contract.md": true,
+    "references/self-evolution.md": true,
+    "references/validation.md": true,
+    "scripts/evolution_audit.py": true,
+    "scripts/inspect_repo.py": true
+  },
+  "skill_structure": {
+    "SKILL.md": {
+      "frontmatter": {
+        "description": "在本仓库把真实视频重建为可编辑的 Blender 初始场景、Genesis 纯仿真场景和可续跑的域随机化数据；用于新增场景、迁移或修复物理、校准渲染、扩展求解能力及批量生产，不用于源视频合成、逐帧轨迹回放或只改 JSON/颜色的伪随机化。",
+        "name": "video2scene"
+      },
+      "headings": [
+        "# Video2Scene",
+        "## 不可破坏的约束",
+        "## 开始任务",
+        "## 核心迭代循环",
+        "### A. 证据与物理命题",
+        "### B. Phase 1：可编辑 Blender 初态",
+        "### C. Phase 2：Genesis 迁移与纯仿真",
+        "### D. Phase 3：并行域随机化",
+        "## 代码与 skill 共同演进",
+        "## 自进化闭环",
+        "## 完成与汇报"
+      ]
+    },
+    "references/phase-playbook.md": {
+      "headings": [
+        "# Phase playbook",
+        "## 0. Establish the target and evidence",
+        "## 1. Phase 1: scene contract and Blender handoff",
+        "### Implement",
+        "### Build and review",
+        "## 2. Phase 2: compile and validate Genesis physics",
+        "## 3. Phase 3: randomization and production",
+        "## 4. Focused repair workflow"
+      ]
+    },
+    "references/repository-contract.md": {
+      "headings": [
+        "# Repository contract",
+        "## Canonical layout",
+        "## Entrypoints",
+        "## Module ownership",
+        "## Current schema boundary",
+        "## Extension checklist",
+        "### Add a geometry generator",
+        "### Add a physical mechanism",
+        "### Add a randomized parameter",
+        "## Known reference-scene assumptions"
+      ]
+    },
+    "references/self-evolution.md": {
+      "headings": [
+        "# Self-evolution loop",
+        "## When to trigger",
+        "## Evolution cycle",
+        "### 1. Capture evidence",
+        "### 2. Classify ownership",
+        "### 3. Reproduce before editing",
+        "### 4. Patch code and regression first",
+        "### 5. Validate the real path",
+        "### 6. Promote durable learning into the skill",
+        "### 7. Review and refresh the structural baseline",
+        "## Findings and response policy",
+        "## Safety boundaries"
+      ]
+    },
+    "references/validation.md": {
+      "headings": [
+        "# Validation and acceptance",
+        "## Evidence hierarchy",
+        "## Phase 1 gate",
+        "## Phase 2 gate",
+        "## Phase 3 gate",
+        "## Visual review checklist",
+        "## Anti-patterns",
+        "## Minimum regression suite"
+      ]
+    }
+  }
+}
